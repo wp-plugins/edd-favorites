@@ -58,6 +58,8 @@ Setup the EDD Favorites page and edit page
 
 == Screenshots ==
 
+[See more screenshots](https://easydigitaldownloads.com/extensions/edd-favorites/ "See more screenshots")
+
 1. Favorite downloads 
 2. View your list of favorites
 3. Edit your favorites list
