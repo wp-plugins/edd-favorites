@@ -15,6 +15,7 @@ Favorite/Unfavorite downloads in Easy Digital Downloads with just 1 click.
 This plugin requires both [EDD Wish Lists](https://easydigitaldownloads.com/extensions/edd-wish-lists/?ref=166 "EDD Wish Lists") & [Easy Digital Downloads](http://wordpress.org/extend/plugins/easy-digital-downloads/ "Easy Digital Downloads"). <strong>It will NOT function without them.</strong>
 
 **Demo**
+
 [View Live Demo](http://edd-favorites.sumobithemes.com "View Demo")
 
 EDD Favorites is a plugin for EDD Wish Lists that allows your customers to "favorite" downloads. With 1 click (and another click to remove) the download is instantly added to the user's favorites.
@@ -24,7 +25,8 @@ EDD Favorites is a plugin for EDD Wish Lists that allows your customers to "favo
 With EDD Wish lists, you click the "add to wish list" link and choose a list (or create a new one) from the modal window. It also works with variable pricing. EDD favorites is for quickly adding/removing downloads to a single list with 1 click. It doesn't support variable pricing, meaning you cannot add a specific price to the favorites list, instead it adds the entire download.
 
 **Coming soon**
-Favorite downloads to a specific list, auto page creation on plugin install, share your favorites list (just like Wish Lists).
+
+Favorite downloads to a specific list (like etsy), auto page creation on plugin install, share your favorites list (just like Wish Lists).
 
 **More plugins for Easy Digital Downloads by Sumobi**
 
