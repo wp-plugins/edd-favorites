@@ -4,7 +4,7 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_i
 Tags: easy digital downloads, digital downloads, e-downloads, edd, sumobi, purchase, wish list, wishlist, favorite, bookmark, e-commerce
 Requires at least: 3.3
 Tested up to: 3.9 alpha
-Stable tag: 1.0.1
+Stable tag: 1.0.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -14,9 +14,8 @@ Favorite/Unfavorite downloads in Easy Digital Downloads with just 1 click.
 
 This plugin requires both [EDD Wish Lists](https://easydigitaldownloads.com/extensions/edd-wish-lists/?ref=166 "EDD Wish Lists") & [Easy Digital Downloads](http://wordpress.org/extend/plugins/easy-digital-downloads/ "Easy Digital Downloads"). <strong>It will NOT function without them.</strong>
 
-**Demo**
-
 [View Live Demo](http://edd-favorites.sumobithemes.com "View Demo")
+[View Documentation](http://sumobi.com/docs/edd-favorites/ "View Documentation")
 
 EDD Favorites is a plugin for EDD Wish Lists that allows your customers to "favorite" downloads. With 1 click (and another click to remove) the download is instantly added to the user's favorites.
 
@@ -65,6 +64,13 @@ Setup the EDD Favorites page and edit page
 3. Edit your favorites list
 
 == Changelog ==
+
+= 1.0.2 =
+Fix: When favorites link text is intentionally left empty in settings, text is no longer shown on front-end
+New: edd_favorites_post_status filter for setting default post status when favorites list is created
+New: Added documentation link to readme
+Tweak: Changed edd_favorites_page_title filter to edd_favorites_post_title
+Tweak: Removed unused constants
 
 = 1.0.1 =
 Fix: user who didn't have cookie was given a list that already existed
