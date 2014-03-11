@@ -14,25 +14,21 @@ Favorite/Unfavorite EDD downloads in just 1 click.
 
 This plugin requires both [EDD Wish Lists](https://easydigitaldownloads.com/extensions/edd-wish-lists/?ref=166 "EDD Wish Lists") & [Easy Digital Downloads](http://wordpress.org/extend/plugins/easy-digital-downloads/ "Easy Digital Downloads"). <strong>It will NOT function without them.</strong>
 
+**Demo**
 [View Live Demo](http://edd-favorites.sumobithemes.com "View Demo")
 
 EDD Favorites is a plugin for EDD Wish Lists that allows your customers to "favorite" downloads. With 1 click (and another click to remove) the download is instantly added to the user's favorites.
 
-*What's the difference between EDD Wish Lists and EDD Favorites?*
+**What's the difference between EDD Wish Lists and EDD Favorites?**
 
-With EDD Wish lists, you click the "add to wish list" link and choose a list (or create a new one) from the modal window. It also works with variable pricing. EDD favorites is for quickly adding/removing downloads to a single list with 1 click. It doesn't support variable pricing, meaning you cannot add a specific price to the favorites list, instead it adds the entire download
+With EDD Wish lists, you click the "add to wish list" link and choose a list (or create a new one) from the modal window. It also works with variable pricing. EDD favorites is for quickly adding/removing downloads to a single list with 1 click. It doesn't support variable pricing, meaning you cannot add a specific price to the favorites list, instead it adds the entire download.
 
-*Supports*
-[Crowdfunding](http://wordpress.org/plugins/appthemer-crowdfunding/ "Crowdfunding") plugin by Astoundify
+**Coming soon**
+Favorite downloads to a specific list, auto page creation on plugin install, share your favorites list (just like Wish Lists).
 
-*Coming soon*
-1. Favorite downloads to a specific list
-2. Auto page creation on plugin install
-3. Share your favorites list (just like Wish Lists)
+**More plugins for Easy Digital Downloads by Sumobi**
 
-**More plugins by Sumobi for Easy Digital Downloads**
-
-You can find more plugins (both free and commercial) from [Easy Digital Downloads' website](https://easydigitaldownloads.com/blog/author/andrewmunro/?ref=166 "EDD Plugins by Sumobi")
+You can find more of my EDD plugins (both free and commercial) from [Easy Digital Downloads' website](https://easydigitaldownloads.com/blog/author/andrewmunro/?ref=166 "EDD Plugins by Sumobi")
 
 **Stay up to date**
 
