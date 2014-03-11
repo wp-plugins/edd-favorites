@@ -1,0 +1,69 @@
+=== EDD Favorites ===
+Contributors: sumobi
+Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=EFUPMPEZPGW7L
+Tags: easy digital downloads, digital downloads, e-downloads, edd, sumobi, purchase, wish list, wishlist, favorite, bookmark, e-commerce
+Requires at least: 3.3
+Tested up to: 3.9 alpha
+Stable tag: 1.0.1
+License: GPLv2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+
+Favorite/Unfavorite downloads in Easy Digital Downloads with just 1 click.
+
+== Description ==
+
+This plugin requires both [EDD Wish Lists](https://easydigitaldownloads.com/extensions/edd-wish-lists/?ref=166 "EDD Wish Lists") & [Easy Digital Downloads](http://wordpress.org/extend/plugins/easy-digital-downloads/ "Easy Digital Downloads"). <strong>It will NOT function without them.</strong>
+
+**Demo**
+[View Live Demo](http://edd-favorites.sumobithemes.com "View Demo")
+
+EDD Favorites is a plugin for EDD Wish Lists that allows your customers to "favorite" downloads. With 1 click (and another click to remove) the download is instantly added to the user's favorites.
+
+**What's the difference between EDD Wish Lists and EDD Favorites?**
+
+With EDD Wish lists, you click the "add to wish list" link and choose a list (or create a new one) from the modal window. It also works with variable pricing. EDD favorites is for quickly adding/removing downloads to a single list with 1 click. It doesn't support variable pricing, meaning you cannot add a specific price to the favorites list, instead it adds the entire download.
+
+**Coming soon**
+Favorite downloads to a specific list, auto page creation on plugin install, share your favorites list (just like Wish Lists).
+
+**More plugins for Easy Digital Downloads by Sumobi**
+
+You can find more of my EDD plugins (both free and commercial) from [Easy Digital Downloads' website](https://easydigitaldownloads.com/blog/author/andrewmunro/?ref=166 "EDD Plugins by Sumobi")
+
+**Stay up to date**
+
+*Become a fan on Facebook* 
+[http://www.facebook.com/sumobicom](http://www.facebook.com/sumobicom "Facebook")
+
+*Follow me on Twitter* 
+[http://twitter.com/sumobi_](http://twitter.com/sumobi_ "Twitter")
+
+== Installation ==
+
+1. Unpack the entire contents of this plugin zip file into your `wp-content/plugins/` folder locally
+1. Upload to your site
+1. Navigate to `wp-admin/plugins.php` on your site (your WP Admin plugin page)
+1. Activate this plugin
+
+
+OR you can just install it with WordPress by going to Plugins &rarr; Add New &rarr; and type this plugin's name
+
+Setup the EDD Favorites page and edit page
+
+1. Create a new page where users will view their favorites. Insert the [edd_favorites] shortcode
+1. Create a new page where users will edit their favorites (optional). Insert the [edd_favorites_edit] shortcode
+1. Select these 2 pages from the EDD settings in Downloads &rarr; Settings &rarr; Extensions
+
+== Screenshots ==
+
+1. Favorite downloads 
+2. View your list of favorites
+3. Edit your favorites list
+
+== Changelog ==
+
+= 1.0.1 =
+Fix: user who didn't have cookie was given a list that already existed
+
+= 1.0 =
+* Initial release
