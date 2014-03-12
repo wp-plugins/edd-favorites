@@ -4,7 +4,7 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_i
 Tags: easy digital downloads, digital downloads, e-downloads, edd, sumobi, purchase, wish list, wishlist, favorite, bookmark, e-commerce
 Requires at least: 3.3
 Tested up to: 3.9 alpha
-Stable tag: 1.0.2
+Stable tag: 1.0.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -14,8 +14,7 @@ Favorite/Unfavorite downloads in Easy Digital Downloads with just 1 click.
 
 This plugin requires both [EDD Wish Lists](https://easydigitaldownloads.com/extensions/edd-wish-lists/?ref=166 "EDD Wish Lists") & [Easy Digital Downloads](http://wordpress.org/extend/plugins/easy-digital-downloads/ "Easy Digital Downloads"). <strong>It will NOT function without them.</strong>
 
-[View Live Demo](http://edd-favorites.sumobithemes.com "View Demo")
-[View Documentation](http://sumobi.com/docs/edd-favorites/ "View Documentation")
+[View Live Demo](http://edd-favorites.sumobithemes.com "View Demo") | [View Documentation](http://sumobi.com/docs/edd-favorites/ "View Documentation")
 
 EDD Favorites is a plugin for EDD Wish Lists that allows your customers to "favorite" downloads. With 1 click (and another click to remove) the download is instantly added to the user's favorites.
 
@@ -29,7 +28,7 @@ Favorite downloads to a specific list (like etsy), auto page creation on plugin 
 
 **More plugins for Easy Digital Downloads by Sumobi**
 
-You can find more of my EDD plugins (both free and commercial) from [Easy Digital Downloads' website](https://easydigitaldownloads.com/blog/author/andrewmunro/?ref=166 "EDD Plugins by Sumobi")
+You can find more of my EDD plugins (both free and commercial) from the [Easy Digital Downloads'](https://easydigitaldownloads.com/blog/author/andrewmunro/?ref=166 "EDD Plugins by Sumobi") website
 
 **Stay up to date**
 
@@ -64,6 +63,11 @@ Setup the EDD Favorites page and edit page
 3. Edit your favorites list
 
 == Changelog ==
+
+= 1.0.3 =
+Requires: EDD Wish Lists v1.0.3
+New: Modified the delete link text on edit page to say "Delete favorites". Filter included for changing
+Tweak: removed unused code
 
 = 1.0.2 =
 Fix: When favorites link text is intentionally left empty in settings, text is no longer shown on front-end
