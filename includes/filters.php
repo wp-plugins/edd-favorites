@@ -185,6 +185,7 @@ add_filter( 'edd_wl_is_view_page', 'edd_favorites_edd_wl_is_view_page' );
  */
 function edd_favorites_edd_wl_edit_settings_link_uri( $uri, $list_id ) {
 	// list ID matches the favorites list ID and we're on favorites page
+
 	if ( $list_id == edd_favorites_get_users_list_id() && edd_favorites_is_favorites() ) {
 		$uri = edd_favorites_get_edit_uri( $list_id );
 	}

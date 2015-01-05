@@ -14,11 +14,11 @@ if ( ! defined( 'ABSPATH' ) ) exit;
  */
 function edd_favorites_set_query_var() {
 	if ( edd_favorites_is_favorites() ) {
-		set_query_var( 'view', edd_favorites_get_users_list_id() );
+		set_query_var( 'wl_view', edd_favorites_get_users_list_id() );
 	}
 
 	if ( edd_favorites_is_edit_page() ) {
-		set_query_var( 'edit', edd_favorites_get_users_list_id() );
+		set_query_var( 'wl_edit', edd_favorites_get_users_list_id() );
 	}
 }
 add_action( 'template_redirect', 'edd_favorites_set_query_var', 9 ); // runs just before edd_wl_process_form_requests() so it can pick up the correct query_var 
@@ -36,7 +36,7 @@ function edd_favorites_set_messages() {
 	*/
 	if ( edd_favorites_is_favorites() ) {
 
-		$downloads = edd_wl_get_wish_list();
+		$downloads = edd_wl_get_wish_list( edd_wl_get_list_id() );
 
 		// list updated
 		if ( isset( $_GET['list'] ) && $_GET['list'] == 'updated' ) {
@@ -121,8 +121,6 @@ function edd_favorites_load_link( $download_id = '' ) {
 
 	$args = apply_filters( 'edd_favorites_link', $args );
 
-	//var_dump( $args );
-
 	edd_wl_wish_list_link( $args );
 }
 
@@ -139,4 +137,3 @@ function edd_favorites_link() {
 	add_action( 'edd_purchase_link_top', 'edd_favorites_load_link' );
 }
 add_action( 'template_redirect', 'edd_favorites_link' );
-
