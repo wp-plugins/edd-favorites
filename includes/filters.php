@@ -22,6 +22,22 @@ add_filter( 'edd_wl_show_add_all_to_cart_link', '__return_false' );
  */
 add_filter( 'edd_wl_item_title_options', '__return_false' );
 
+
+/**
+ * Remove CSS class responsible for ajax when there are variable priced downloads
+ *
+ * @since 1.0.4
+ */
+function edd_favorites_edd_wl_item_purchase( $classes, $download_id ) {
+	$variable_pricing = edd_has_variable_prices( $download_id );
+
+	if ( $variable_pricing )
+		return '';
+
+	return $classes;
+}
+add_filter( 'edd_wl_item_purchase_default_css_classes', 'edd_favorites_edd_wl_item_purchase', 10, 2 );
+
 /**
  * Filter the price on the favorites page
  * Variable prices will show a price range
@@ -38,6 +54,63 @@ function edd_favorites_edd_wl_item_price( $item_price, $item_id ) {
 	return $item_price;
 }
 add_filter( 'edd_wl_item_price', 'edd_favorites_edd_wl_item_price', 10, 2 );
+
+/**
+ * Delete Favorites link on edit page
+ * @since  1.0.3
+ */
+function edd_favorites_delete_list_text( $args ) {
+	if ( edd_favorites_is_edit_page() ) {
+		$args['text'] = apply_filters( 'edd_favorites_delete_list_text', sprintf( __( 'Delete %s', 'edd-favorites' ), edd_favorites_get_label_plural( true ) ) );
+	}
+
+	return $args;
+}
+add_filter( 'edd_wl_delete_list_link_defaults', 'edd_favorites_delete_list_text' );
+
+/**
+ * Change the labels
+*/
+function edd_favorites_default_labels() {
+	$defaults = array(
+	   'singular' 	=> __( 'Favorite', 'edd-favorites' ),
+	   'plural' 	=> __( 'Favorites', 'edd-favorites')
+	);
+
+	return apply_filters( 'edd_favorites_default_labels', $defaults );
+}
+
+/**
+ * Messages
+ * 
+ * @since 1.0
+ */
+function edd_favorites_messages( $messages ) {
+
+	$new_messages = array();
+
+	// main favorite page
+	if ( edd_favorites_is_favorites() ) {
+		$new_messages = array(
+			'list_updated'			=> __( 'Successfully updated', 'edd-favorites' ),
+			'modal_share_title'		=> sprintf( __( 'Share your %s', 'edd-favorites' ), edd_favorites_get_label_plural( true )),
+		);
+	}
+
+	// edit page
+	if ( edd_favorites_is_edit_page() ) {
+		$new_messages = array(
+			'list_delete_confirm' 			=> sprintf( __( 'You are about to delete your %s, are you sure?', 'edd-wish-lists' ), edd_favorites_get_label_plural( true ) ),
+			'modal_delete_title'			=> sprintf( __( 'Delete %s', 'edd-wish-lists' ), edd_favorites_get_label_plural( true ) ),
+			'modal_button_delete_confirm'	=> sprintf( __( 'Yes, delete %s', 'edd-wish-lists' ), edd_favorites_get_label_plural( true ) ),	
+		);
+	}
+
+	$new_messages = apply_filters( 'edd_favorites_messages', $new_messages );
+
+	return array_merge( $messages, $new_messages );
+}
+add_filter( 'edd_wl_messages', 'edd_favorites_messages' );
 
 
 /**
@@ -112,6 +185,7 @@ add_filter( 'edd_wl_is_view_page', 'edd_favorites_edd_wl_is_view_page' );
  */
 function edd_favorites_edd_wl_edit_settings_link_uri( $uri, $list_id ) {
 	// list ID matches the favorites list ID and we're on favorites page
+
 	if ( $list_id == edd_favorites_get_users_list_id() && edd_favorites_is_favorites() ) {
 		$uri = edd_favorites_get_edit_uri( $list_id );
 	}
