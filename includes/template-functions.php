@@ -14,11 +14,11 @@ if ( ! defined( 'ABSPATH' ) ) exit;
  */
 function edd_favorites_set_query_var() {
 	if ( edd_favorites_is_favorites() ) {
-		set_query_var( 'view', edd_favorites_get_users_list_id() );
+		set_query_var( 'wl_view', edd_favorites_get_users_list_id() );
 	}
 
 	if ( edd_favorites_is_edit_page() ) {
-		set_query_var( 'edit', edd_favorites_get_users_list_id() );
+		set_query_var( 'wl_edit', edd_favorites_get_users_list_id() );
 	}
 }
 add_action( 'template_redirect', 'edd_favorites_set_query_var', 9 ); // runs just before edd_wl_process_form_requests() so it can pick up the correct query_var 
@@ -36,7 +36,7 @@ function edd_favorites_set_messages() {
 	*/
 	if ( edd_favorites_is_favorites() ) {
 
-		$downloads = edd_wl_get_wish_list();
+		$downloads = edd_wl_get_wish_list( edd_wl_get_list_id() );
 
 		// list updated
 		if ( isset( $_GET['list'] ) && $_GET['list'] == 'updated' ) {
@@ -52,18 +52,6 @@ function edd_favorites_set_messages() {
 }
 add_action( 'template_redirect', 'edd_favorites_set_messages' );
 
-/**
- * Remove standard wish list links
- * @return [type] [description]
- */
-function edd_favorites_link() {
-	// remove standard add to wish list link
-	remove_action( 'edd_purchase_link_top', 'edd_wl_load_wish_list_link' );
-
-	// add our new link
-	add_action( 'edd_purchase_link_top', 'edd_favorites_load_link' );
-}
-add_action( 'template_redirect', 'edd_favorites_link' );
 
 /**
  * When a guest registers, copy their favorites list ID to their user profile
@@ -79,6 +67,7 @@ function edd_favorites_new_user_registration( $user_id ) {
 }
 add_action( 'user_register', 'edd_favorites_new_user_registration', 10, 1 );
 add_action( 'wpmu_new_user', 'edd_favorites_new_user_registration', 10, 1 );
+
 
 /**
  * Handles loading of the favorites link
@@ -122,13 +111,29 @@ function edd_favorites_load_link( $download_id = '' ) {
 
 	
 	// add $options
-	$args = apply_filters( 'edd_favorites_link', array(
+	$args = array(
 		'download_id'	=> $download_id,
 		'action'		=> 'edd_favorites_favorite',
 		'class'			=> implode( ' ', $classes ),
 		'link_size'		=> apply_filters( 'edd_wl_link_size', '' ),
-		'text'        	=> ! empty( $edd_options[ 'edd_favorites_favorite' ] ) ? $edd_options[ 'edd_favorites_favorite' ] : __( 'Favorite', 'edd-favorites' )
-	), $download_id );
+		'text'        	=> ! empty( $edd_options[ 'edd_favorites_favorite' ] ) ? $edd_options[ 'edd_favorites_favorite' ] : '',
+	);
+
+	$args = apply_filters( 'edd_favorites_link', $args );
 
 	edd_wl_wish_list_link( $args );
 }
+
+/**
+ * Remove standard wish list links
+ * @return [type] [description]
+ * @uses  edd_favorites_load_link()
+ */
+function edd_favorites_link() {
+	// remove standard add to wish list link
+	remove_action( 'edd_purchase_link_top', 'edd_wl_load_wish_list_link' );
+
+	// add our new link
+	add_action( 'edd_purchase_link_top', 'edd_favorites_load_link' );
+}
+add_action( 'template_redirect', 'edd_favorites_link' );

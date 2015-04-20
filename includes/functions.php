@@ -53,6 +53,11 @@ function edd_favorites_get_users_list_id() {
 	}
 	// user is logged out
 	elseif ( ! is_user_logged_in() ) {
+
+		// if user does not have token, exit
+		if ( ! edd_wl_get_list_token() )
+			return null;
+
 		// find the list ID that has the 'edd_favorites_list_id' meta key and value of user's token
 		$args = array(
 			'post_type' 		=> 'edd_wish_list',
@@ -77,9 +82,9 @@ function edd_favorites_get_users_list_id() {
  */
 function edd_favorites_create_list_id() {
 	$args = array(
-		'post_title'    => apply_filters( 'edd_favorites_page_title', __( 'My Favorites', 'edd-favorites' ) ),
+		'post_title'    => apply_filters( 'edd_favorites_post_title', __( 'My Favorites', 'edd-favorites' ) ),
 		'post_content'  => '',
-		'post_status'   => 'private',
+		'post_status'   => apply_filters( 'edd_favorites_post_status', 'private' ),
 		'post_type'     => 'edd_wish_list',
 	);
 
@@ -99,11 +104,13 @@ function edd_favorites_get_view_uri( $id = '' ) {
 	$uri = isset( $edd_options['edd_favorites_page_view'] ) ? get_permalink( $edd_options['edd_favorites_page_view'] ) : false;
 
 	if ( edd_wl_has_pretty_permalinks() ) {
-		return apply_filters( 'edd_favorites_get_view_uri', trailingslashit( $uri ) );
-	}		
-	else {
-		return apply_filters( 'edd_favorites_get_view_uri', add_query_arg( 'view', $id, $uri ) );
+		$url = trailingslashit( $uri );
 	}
+	else {
+		$url = add_query_arg( 'wl_view', $id, $uri );
+	}
+
+	return esc_url( apply_filters( 'edd_favorites_get_view_uri', $url ) );
 }
 
 /**
@@ -116,11 +123,13 @@ function edd_favorites_get_edit_uri( $id = '' ) {
 	$uri = isset( $edd_options['edd_favorites_page_edit'] ) ? get_permalink( $edd_options['edd_favorites_page_edit'] ) : false;
 
 	if ( edd_wl_has_pretty_permalinks() ) {
-		return apply_filters( 'edd_favorites_get_edit_uri', trailingslashit( $uri ) );
-	}		
-	else {
-		return apply_filters( 'edd_favorites_get_edit_uri', add_query_arg( 'view', $id, $uri ) );
+		$url = trailingslashit( $uri );
 	}
+	else {
+		$url = add_query_arg( 'wl_edit', $id, $uri );
+	}
+
+	return esc_url( apply_filters( 'edd_favorites_get_edit_uri', $url ) );
 }
 
 
